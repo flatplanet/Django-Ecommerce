@@ -8,6 +8,11 @@ class Category(models.Model):
 	def __str__(self):
 		return self.name
 
+	#@daverobb2011
+	class Meta:
+		verbose_name_plural = 'categories'
+
+
 # Customers
 class Customer(models.Model):
 	first_name = models.CharField(max_length=50)
