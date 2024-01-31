@@ -9,7 +9,17 @@
                         <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
 
             {% if user.is_authenticated %}
-               <li class="nav-item"><a class="nav-link" href="{% url 'update_user' %}">Profile</a></li>
+              
+   <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profile</a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="{% url 'update_user' %}">User Profile</a></li>
+                <li><hr class="dropdown-divider" /></li>
+<li><a class="dropdown-item" href="{% url 'update_info'  %}">User Info</a></li>
+                            </ul>
+                        </li>
+
+
                <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
             {% else %}
                <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
