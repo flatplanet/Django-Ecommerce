@@ -41,6 +41,10 @@ class UpdateUserForm(UserChangeForm):
 	# Hide Password stuff
 	password = None
 	# Get other fields
+	
+    #Making our widget look nice we use widgets
+    #Adding place holder
+    #We include it in our dictonary and write the placeholder there with a value
 	email = forms.EmailField(label="", widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Email Address'}), required=False)
 	first_name = forms.CharField(label="", max_length=100, widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'First Name'}), required=False)
 	last_name = forms.CharField(label="", max_length=100, widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Last Name'}), required=False)

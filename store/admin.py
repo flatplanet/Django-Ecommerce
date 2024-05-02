@@ -2,6 +2,17 @@ from django.contrib import admin
 from .models import Category, Customer, Product, Order, Profile
 from django.contrib.auth.models import User
 
+
+
+
+
+
+
+
+
+#To register a Model created from the model.py
+#After registering the model we can be able to modify it in the admin page
+#And we can also view it in the admin page as well
 admin.site.register(Category)
 admin.site.register(Customer)
 admin.site.register(Product)

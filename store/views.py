@@ -97,6 +97,14 @@ def update_user(request):
 
 
 def category_summary(request):
+
+	#The Category has many method as a class eg
+	#objects.all() used to get all item in the database of the category
+	#objects.filter() use to filter a particular item form a Class or Model
+	#objects.save() to save into the database
+	#objects.get() to get a single item from the Model
+
+	#Note only the objects.all() takes no attribute others do
 	categories = Category.objects.all()
 	return render(request, 'category_summary.html', {"categories":categories})	
 
@@ -129,6 +137,8 @@ def about(request):
 
 def login_user(request):
 	if request.method == "POST":
+
+		#Getting the value of the username from the form.py
 		username = request.POST['username']
 		password = request.POST['password']
 		user = authenticate(request, username=username, password=password)
@@ -172,7 +182,16 @@ def register_user(request):
 	if request.method == "POST":
 		form = SignUpForm(request.POST)
 		if form.is_valid():
+			
+			#To save our input value in the database
 			form.save()
+
+			#The meaning of form.cleaned_data.[''username]  is to -Extract that value form the input
+			#and store it in the variable created
+			#If that is not working you can also use
+
+			# form.cleaned_data.get('username') 
+	
 			username = form.cleaned_data['username']
 			password = form.cleaned_data['password1']
 			# log in user
