@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- Header-->
+        
+
+        <div class="container">
+        	<div class="row">
+        		<center>
+        			<div class="col-8">
+        				<br/><br/>
+<h3>Shipped Items</h3>
+<table class="table table-striped table-hover table-bordered">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">Order</th>
+      <th scope="col">Price</th>
+      <th scope="col">Customer Email</th>
+      <th scope="col">Date Shipped</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in orders %}
+    <tr>
+      <td>{{ item.id }}</td>
+      <td>${{ item.amount_paid }}</td>
+      <td>{{ item.email }}</td>
+      <td>{{ item.date_shipped }}</td>
+    </tr>
+    {% endfor %}
+  
+    
+  </tbody>
+</table>
+
+
+<br/><br/>
+        			</div>
+        		</center>
+        	</div>
+        </div>
+
+{% endblock %}
