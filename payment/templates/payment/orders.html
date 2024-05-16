@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- Header-->
+        
+
+        <div class="container">
+        	<div class="row">
+        		<center>
+        			<div class="col-8">
+        				<br/><br/>
+<div class="card">
+  <div class="card-header">
+    Order {{ order.id}} - ${{order.amount_paid}}
+  </div>
+  <div class="card-body">
+    Email: {{ order.email}}<br/>
+    {% if order.date_shipped %}
+      Date Shipped: {{ order.date_shipped}}
+    {% else %}
+     Date Ordered: {{ order.date_ordered}}
+    {% endif %}
+    <br/><br/>
+    {{ order.full_name }}<br/>
+    <pre>{{ order.shipping_address }}
+    </pre>
+    {% for item in items %}
+      {{ item.product }} - {{ item.quantity }} - ${{ item.price }}<br/>
+
+    {% endfor %}
+
+
+  </div>
+</div>
+<br/>
+
+<br/><br/>
+        			</div>
+        		</center>
+        	</div>
+        </div>
+
+{% endblock %}
