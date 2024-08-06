@@ -44,15 +44,27 @@
 
 
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="{% url 'category_summary' %}">All Products</a></li>
-                                <li><hr class="dropdown-divider" /></li>
-<li><a class="dropdown-item" href="{% url 'category' 'Programming-Books' %}">Programming Books</a></li>
-                                <li><a class="dropdown-item" href="{% url 'category' 'Marketing-Books' %}">Marketing Books</a></li>
-                            </ul>
-                        </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Categories
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    {% if user.is_superuser %}
+                    <li>
+                        <a class="dropdown-item" href="{% url 'add_category' %}">Add Category</a>
+                    </li>
+                    {% endif %}
+                    <li>
+                        <a class="dropdown-item" href="{% url 'category_summary' %}">All Products</a>
+                    </li>
+                    <li><hr class="dropdown-divider" /></li>
+                    {% for category in categories %}
+                    <li>
+                        <a class="dropdown-item" href="{% url 'category' category.name %}">{{ category.name }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </li>
                     </ul>
                     <form class="d-flex">
 
